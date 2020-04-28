@@ -1,0 +1,29 @@
+
+1. What is the maximum out-degree of any vertex and what is its URL name (assume the answer is unique)?
+The maximum out degree is: 	184
+The maximum out degree vertex URL is: http://www1.hogsnorts.edu/Docs/GVCalendar/gvarchives.htm
+
+2. What is the maximum in-degree of any vertex and what is its URL name (assume the answer is unique)?
+The maximum in degree is: 	829
+The maximum in degree vertex URL is: http://www.hogsnorts.edu/
+
+
+3. Is the graph strongly connected? How did you determine your response?
+It is not strongly connected. I determined my response by using the "isStronglyConnected" method in the Graph class. First,
+I created a function named DFS used for depth first search and check whether I can get to every vertices from the current vertex.
+Second, I created a getReverse function to reverse the direction of all links in the graph. By doing this, the graph is reversed.
+When we use DFS on a reverse graph, if I can reach every vertex from a reversed graph from the current vertex, then every vertex
+can reach the current vertex in the original graph. Finally, I created a boolean function named isStronglyConnected to include the
+DFS function and getReverse function to check whether the graph is strongly connected.
+
+
+4. Is the graph weakly connected? That is, is the underlying undirected graph connected? How did you determine your response?
+The graph is weakly connected. I determined it by using isWeaklyConnected function. The function first ignored the edge direction by
+adding a mirrored set of edges to the original graph. For example, if A is directed to B, an edge directed from B to A is created.
+Then, I traversed through the graph using DFS. If it is successful, the graph is weakly connected.
+
+
+5. What is the “diameter” of the underlying undirected graph? The diameter of a graph is the largest of all the shortest paths
+between any two vertices. Use Dijkstra’s method incorporating a Priority Queue (min-heap) to calculate the shortest path from
+each vertex to every other vertex. Identify the largest of these shortest path values. [All edges in the undirected graph have
+a cost of 1.] Use data structures in the Standard Library when possible. Don’t reinvent the wheel.

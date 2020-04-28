@@ -3,7 +3,7 @@
  *
  *  Honor Pledge:
  *  The code submitted for this project was developed by
- *  YOUR NAME HERE without outside assistance or consultation
+ *  Shiming Jin without outside assistance or consultation
  *  except as allowed by the instructions for this project.
  *  Any use of code from web sites is clearly documented.
  *
@@ -28,6 +28,7 @@ public class Main {
             G = new Graph(V, E);
             // read the rest of the lines containing one "from" -> "to" pair per line
             while ((line = br.readLine()) != null) {
+                //the numbers are all deducted by 1 since the index should start from 0
                 int from = Integer.parseInt(line.split(" ")[0]) - 1;
                 int to = Integer.parseInt(line.split(" ")[1]) - 1;
                 G.addEdge(from, to);
@@ -51,6 +52,26 @@ public class Main {
 
         // acknowledge that graph has been constructed
         System.out.format("Constructed Directed Graph with %d Vertices and %d Edges\n",
-                          G.getV(), G.getE());
+                G.getV(), G.getE());
+
+
+        //try to find the largest out-degree vertex in the graph by iterating through the adjacency list
+        // and find the vertex with the longest linked list (method: use the method created in the graph class)
+        G.findMaxInOut(G.AdjacencyList, G.getV(), G.VertexList);
+
+        //use the isStronglyConnected Method in the Graph class to determine whether the graph is strongly connected or not
+        if(G.isStronglyConnected()){
+            System.out.println("It is strongly connected");
+        }
+        else{
+            System.out.println("it is not strongly connected");
+        }
+
+        if(G.isWeaklyConnected()){
+            System.out.println("It is weakly connected");
+        }
+        else{
+            System.out.println("It is not weakly connected");
+        }
     }
 }
